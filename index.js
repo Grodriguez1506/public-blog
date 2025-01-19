@@ -5,8 +5,8 @@ import { connectDb } from "./db.js";
 import appRoutes from "./routes/app.routes.js";
 import userRoutes from "./routes/users.routes.js";
 import postRoutes from "./routes/posts.routes.js";
+import path from "path";
 import { fileURLToPath } from "url";
-import { dirname, join } from "path";
 
 // Ruta al directorio raiz
 
@@ -24,16 +24,16 @@ app.set("port", 3000);
 // Configurar EJS como motor de plantillas
 
 app.set("view engine", "ejs");
-app.set("views", join(__dirname, "views"));
+app.set("views", path.join(__dirname, "views"));
 
 // Configuración para procesar datos de formularios
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Configuración de archivos estáticos
+// Configuración de archivos estaticos
 
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Configurar la lectura de datos JSON
 
