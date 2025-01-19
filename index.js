@@ -5,6 +5,13 @@ import { connectDb } from "./db.js";
 import appRoutes from "./routes/app.routes.js";
 import userRoutes from "./routes/users.routes.js";
 import postRoutes from "./routes/posts.routes.js";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+// Ruta al directorio raiz
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Conectar a la base de datos
 
@@ -17,7 +24,7 @@ app.set("port", 3000);
 // Configurar EJS como motor de plantillas
 
 app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set("views", join(__dirname, "views"));
 
 // Configuración para procesar datos de formularios
 
