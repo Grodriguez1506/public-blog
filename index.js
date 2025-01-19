@@ -26,14 +26,14 @@ app.set("port", 3000);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// Configuración de archivos estaticos
+
+app.use(express.static(path.join(__dirname, "public")));
+
 // Configuración para procesar datos de formularios
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Configuración de archivos estaticos
-
-app.use(express.static(path.join(__dirname, "public")));
 
 // Configurar la lectura de datos JSON
 
@@ -50,14 +50,14 @@ app.use(
   })
 );
 
-// Rutas a cada plantilla de la app
-
-app.use(appRoutes);
-
 // Rutas a las interacciones con la BD de la app
 
 app.use("/api", userRoutes);
 app.use("/api", postRoutes);
+
+// Rutas a cada plantilla de la app
+
+app.use(appRoutes);
 
 // Middleware para error 404
 
