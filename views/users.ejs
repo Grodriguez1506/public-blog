@@ -1,0 +1,39 @@
+<%- include('header', {title}) %> 
+
+<% if (message) { %>
+<div class="alert alert-success" role="alert">
+  <%= message %>
+</div>
+<% } %>
+
+<h1 class="title fw-bold mb-3">Usuarios disponibles</h1>
+
+<% if (users.length > 0) { %>
+
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre de usuario</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <% users.forEach(element => { %>
+      <tr>
+        <td><%= element.username %></td>
+        <td><%= element.rol %></td>
+        <td><%= element.age %></td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+
+<% } else { %>
+
+  <h2 class="fw-bold mb-4">No existen usuarios aún</h2>
+ 
+<% } %>
+
+<%- include('./footer.ejs') %>

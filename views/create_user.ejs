@@ -1,0 +1,26 @@
+<%- include('header', {title}) %>
+
+    <h1 class="title fw-bold mb-3">Crear usuario</h1>
+
+    <div class="col-6 my-5" style="justify-self: center;">
+        <form action="/api/create-user" method="POST">
+
+            <div class="form-floating mb-3">
+                <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Nombre de usuario" required>
+                <label for="floatingInput">Nombre de usuario</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="rol" class="form-control" id="floatingInput" placeholder="Rol" required>
+                <label for="floatingInput">Rol</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" name="age" class="form-control" id="floatingInput" placeholder="Edad" required>
+                <label for="floatingInput">Edad</label>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-outline-primary">Crear</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./footer.ejs') %>

@@ -1,0 +1,52 @@
+<%- include('header', {title}) %>
+
+<% if (message) { %>
+<div class="alert alert-success" role="alert">
+    <%= message %>
+</div>
+<% } %>
+
+    <h1 class="title fw-bold mb-3">Postea lo que quieras</h1>
+
+    <form action="/api/create-post" method="POST">
+        <div class="form-floating col-10 m-3">
+            <select class="form-select" id="floatingSelect" name="username" aria-label="Floating label select example" required>
+            <% if (users.length > 0) { %>
+                <option value="" selected></option>
+                <% users.forEach(element => { %>
+                    <option value="<%= element.username %>"><%= element.username %></option>
+                <% }) %>
+            <% } else { %>
+                <option value="" selected>No existe ningún usuario creado</option>
+            <% } %>
+                
+            </select>
+            <label for="floatingSelect">Selecciona el usuario</label>
+        </div>
+        <div class="form-floating col-10 m-3">
+            <input type="text" class="form-control" name="post" id="floatingInput" placeholder="¿Que estás pensando?" required>
+            <label for="floatingInput">¿Que estás pensando?</label>
+        </div>
+        <button type="submit" class="btn btn-outline-dark mx-3">Publicar</button>
+    </form>
+
+    <div class="container my-3">
+        <h2 class="fw-bold mb-4">Publicaciones</h2>
+        
+        <% if (posts.length > 0 ) { %>
+            <% posts.forEach(post => { %>
+                <div class="card mb-4">
+                    <h5 class="card-header fw-bold fs-3">@<%= post.username %></h5>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= post.post %></h5>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <h2 class="fw-bold mb-4">No hay pubicaciones existentes</h2>
+        <% } %>
+         
+        
+    </div>
+
+<%- include('./footer.ejs') %>

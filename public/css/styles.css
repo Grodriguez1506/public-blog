@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+}
+
+:root{
+    --main_background: #f2f2f2;
+    --main_color-font: #222;
+    --second_background: #222;
+    --second_color-font: white;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: var(--main_background);
+    color: var(--main_color-font);
+}
+
+.content{
+    min-height: 82vh;
+}
+
+.list-group-item.active{
+    cursor: pointer;
+    background-color: rgb(33, 37, 41) !important;
+    border-color: white !important;
+}
+
+.form-control:focus,
+select{
+    outline: none !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+}
+
+footer{
+    height: 75px;
+    line-height: 75px;
+}

@@ -1,0 +1,23 @@
+<%- include('header', {title}) %>
+
+    <h1 class="title fw-bold mb-3">Eliminar usuario</h1>
+
+    <div class="col-6 my-5" style="justify-self: center;">
+        <form action="/api/delete_user" method="post">
+
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" name="id" aria-label="Floating label select example">
+                    <option value="" selected></option>
+                <% users.forEach(user => { %>
+                    <option value="<%= user.id %>"><%= user.username %></option>
+                    <% }) %>
+                </select>
+                <label for="floatingSelect">Selecciona el usuario</label>
+            </div>
+            <div class="d-grid gap-2 py-3">
+                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./footer.ejs') %>
