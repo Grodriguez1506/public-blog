@@ -7,7 +7,6 @@ import userRoutes from "./routes/users.routes.js";
 import postRoutes from "./routes/posts.routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
-import routes from "./routes/app.routes.js";
 
 // Ruta al directorio raiz
 
@@ -51,17 +50,14 @@ app.use(
   })
 );
 
-// Rutas
-app.use(routes); // Usa tu archivo principal de rutas
+// Rutas a las interacciones con la BD de la app
 
-// // Rutas a las interacciones con la BD de la app
+app.use("/api", userRoutes);
+app.use("/api", postRoutes);
 
-// app.use("/api", userRoutes);
-// app.use("/api", postRoutes);
+// Rutas a cada plantilla de la app
 
-// // Rutas a cada plantilla de la app
-
-// app.use(appRoutes);
+app.use(appRoutes);
 
 // Middleware para error 404
 
